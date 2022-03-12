@@ -3,6 +3,7 @@ using Exiled.API.Features;
 using Exiled.API.Features.Items;
 using InventorySystem;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace SharedLogicOrchestrator
 {
@@ -154,12 +155,52 @@ namespace SharedLogicOrchestrator
 			set;
 		}
 
+		public Vector3 Position
+		{
+			get;
+			set;
+		}
+
+		public int Id
+		{
+			get;
+			set;
+		}
+		public string Nickname
+		{
+			get;
+			set;
+		}
+
+		public byte scp079lvl
+		{
+			get;
+			set;
+		}
+
+		public float scp079exp
+		{
+			get;
+			set;
+		}
+
+
+		public bool isSpy
+		{
+			get;
+			set;
+		}
 
 		public CloneablePlayerInformation(Player playerInformation)
 		{
 			Inventory = playerInformation.Inventory;
 			Ammo = playerInformation.Ammo;
 			Role = playerInformation.Role;
+			if (Role == RoleType.Scp079)
+			{
+				scp079lvl = playerInformation.ReferenceHub.scp079PlayerScript.Lvl;
+				scp079exp = playerInformation.ReferenceHub.scp079PlayerScript.Exp;
+			}
 			IsFriendlyFireEnabled = playerInformation.IsFriendlyFireEnabled;
 			Health = playerInformation.Health;
 			MaxHealth = playerInformation.MaxHealth;
@@ -170,6 +211,10 @@ namespace SharedLogicOrchestrator
 			CurrentRoom = playerInformation.CurrentRoom;
 			Zone = playerInformation.Zone;
 			IsScp = playerInformation.IsScp;
+			Position = playerInformation.Position;
+			Id = playerInformation.Id;
+			Nickname = playerInformation.Nickname;
+
 
 			Items = new List<Item>(8);
 
@@ -186,7 +231,7 @@ namespace SharedLogicOrchestrator
 			return ReflectionHelpers.toStringObject("CloneablePlayerInformation: ", this);
 		}
 
-		public static CloneablePlayerInformation clone035Player(Player currPlayer)
+		public static CloneablePlayerInformation clonePlayer(Player currPlayer)
 		{
 			return new CloneablePlayerInformation(currPlayer);
 		}
