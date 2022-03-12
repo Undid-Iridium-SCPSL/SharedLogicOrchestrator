@@ -205,7 +205,7 @@ namespace SharedLogicOrchestrator
 			Health = playerInformation.Health;
 			MaxHealth = playerInformation.MaxHealth;
 			ArtificialHealth = playerInformation.ArtificialHealth;
-			MaxArtificialHealth = (float)(playerInformation?.MaxArtificialHealth);
+			MaxArtificialHealth = (playerInformation.MaxArtificialHealth);
 			Stamina = playerInformation.Stamina;
 			GroupName = playerInformation.GroupName;
 			CurrentRoom = playerInformation.CurrentRoom;
