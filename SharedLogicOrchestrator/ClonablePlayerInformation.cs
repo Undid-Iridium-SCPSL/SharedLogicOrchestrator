@@ -15,7 +15,7 @@ namespace SharedLogicOrchestrator
 
 		//
 		// Summary:
-		//     Gets the player's InventorySystem.Inventory.
+		//     Gets the previous player InventorySystem.Inventory.
 		public Inventory Inventory
 		{
 			get;
@@ -24,7 +24,7 @@ namespace SharedLogicOrchestrator
 
 		//
 		// Summary:
-		//     Gets the player's ammo.
+		//     Gets the previous player ammo.
 		public Dictionary<ItemType, ushort> Ammo
 		{
 			get;
@@ -32,6 +32,10 @@ namespace SharedLogicOrchestrator
 
 		}
 
+
+		/// <summary>
+		/// Previous player role
+		/// </summary>
 		public Exiled.API.Features.Roles.Role Role
 		{
 			get;
@@ -40,7 +44,7 @@ namespace SharedLogicOrchestrator
 
 		//
 		// Summary:
-		//     Gets or sets a value indicating whether the player's friendly fire is enabled.
+		//     Gets or sets a value indicating whether the previous player friendly fire is enabled.
 		//     This property only determines if this player can deal damage to players on the
 		//     same team; This player can be damaged by other players on their own team even
 		//     if this property is false.
@@ -60,7 +64,7 @@ namespace SharedLogicOrchestrator
 
 		//
 		// Summary:
-		//     Gets or sets the player's health. If the health is greater than the Exiled.API.Features.Player.MaxHealth,
+		//     Gets or sets the previous player health. If the health is greater than the Exiled.API.Features.Player.MaxHealth,
 		//     the MaxHealth will also be changed to match the health.
 		public float Health
 		{
@@ -70,7 +74,7 @@ namespace SharedLogicOrchestrator
 
 		//
 		// Summary:
-		//     Gets or sets the player's maximum health.
+		//     Gets or sets the previous player maximum health.
 		public int MaxHealth
 		{
 			get;
@@ -79,7 +83,7 @@ namespace SharedLogicOrchestrator
 
 		//
 		// Summary:
-		//     Gets or sets the player's artificial health. If the health is greater than the
+		//     Gets or sets the previous player artificial health. If the health is greater than the
 		//     Exiled.API.Features.Player.MaxArtificialHealth, it will also be changed to match
 		//     the artificial health.
 		public float ArtificialHealth
@@ -90,7 +94,7 @@ namespace SharedLogicOrchestrator
 
 		//
 		// Summary:
-		//     Gets or sets the player's maximum artificial health.
+		//     Gets or sets the previous player maximum artificial health.
 		public float MaxArtificialHealth
 		{
 			get;
@@ -108,7 +112,7 @@ namespace SharedLogicOrchestrator
 
 		//
 		// Summary:
-		//     Gets or sets the player's group name.
+		//     Gets or sets the previous player group name.
 		public string GroupName
 		{
 			get;
@@ -117,7 +121,7 @@ namespace SharedLogicOrchestrator
 
 		//
 		// Summary:
-		//     Gets the current room the player is in.
+		//     Gets the current room the previous player was in.
 		public Room CurrentRoom
 		{
 			get;
@@ -126,7 +130,7 @@ namespace SharedLogicOrchestrator
 
 		//
 		// Summary:
-		//     Gets the current zone the player is in.
+		//     Gets the current zone the previous player was in.
 		public ZoneType Zone
 		{
 			get;
@@ -136,6 +140,10 @@ namespace SharedLogicOrchestrator
 		public List<Item> ItemsValue = new List<Item>(8);
 
 
+
+		/// <summary>
+		/// All the previous players items
+		/// </summary>
 		public ICollection<Item> Items
 		{
 			get;
@@ -149,35 +157,60 @@ namespace SharedLogicOrchestrator
 
 		}
 
+
+		/// <summary>
+		/// Scp Status of the previous player
+		/// </summary>
 		public bool IsScp
 		{
 			get;
 			set;
 		}
 
+
+
+		/// <summary>
+		/// Position of the previous player
+		/// </summary>
 		public Vector3 Position
 		{
 			get;
 			set;
 		}
 
+
+		/// <summary>
+		/// Id of the previous player
+		/// </summary>
 		public int Id
 		{
 			get;
 			set;
 		}
+
+		/// <summary>
+		/// Nickname of the previous player
+		/// </summary>
 		public string Nickname
 		{
 			get;
 			set;
 		}
 
+
+		/// <summary>
+		/// 079 level from previous player if they were 079
+		/// </summary>
 		public byte scp079lvl
 		{
 			get;
 			set;
 		}
 
+
+		/// <summary>
+		/// 079 experience from previous player if they were 079
+		/// </summary>
 		public float scp079exp
 		{
 			get;
@@ -185,6 +218,9 @@ namespace SharedLogicOrchestrator
 		}
 
 
+		/// <summary>
+		/// Potential bool for verification if player was spy (If spy logic gets updated)
+		/// </summary>
 		public bool isSpy
 		{
 			get;
