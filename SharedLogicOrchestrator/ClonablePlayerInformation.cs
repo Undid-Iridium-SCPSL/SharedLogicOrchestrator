@@ -230,7 +230,7 @@ namespace SharedLogicOrchestrator
 		public CloneablePlayerInformation(Player playerInformation)
 		{
 			Inventory = playerInformation.Inventory;
-			Ammo = playerInformation.Ammo;
+			Ammo = new Dictionary<ItemType, ushort>(playerInformation.Ammo);
 			Role = playerInformation.Role;
 			if (Role == RoleType.Scp079)
 			{
