@@ -2,6 +2,7 @@
 using Exiled.API.Features;
 using Exiled.API.Features.Items;
 using InventorySystem;
+using InventorySystem.Items.Usables.Scp330;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -217,6 +218,12 @@ namespace SharedLogicOrchestrator
 			set;
 		}
 
+		public List<CandyKindID> currentCandies
+		{
+			get;
+			set;
+		}
+
 
 		/// <summary>
 		/// Potential bool for verification if player was spy (If spy logic gets updated)
@@ -258,6 +265,11 @@ namespace SharedLogicOrchestrator
 			{
 				Items.Add(playerItem);
 			}
+			if (Scp330Bag.TryGetBag(playerInformation.ReferenceHub, out Scp330Bag bag))
+			{
+				currentCandies = new List<CandyKindID>(bag.Candies);
+			}
+
 
 
 		}
