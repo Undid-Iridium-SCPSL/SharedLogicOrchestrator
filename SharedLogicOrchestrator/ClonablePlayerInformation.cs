@@ -259,15 +259,14 @@ namespace SharedLogicOrchestrator
 			Nickname = playerInformation.Nickname;
 
 
-			Items = new List<Item>(8);
+			if (playerInformation.Items.Count > 0)
+			{
+				Items = new List<Item>(playerInformation.Items);
 
-			foreach (Item playerItem in playerInformation.Items)
-			{
-				Items.Add(playerItem);
-			}
-			if (Scp330Bag.TryGetBag(playerInformation.ReferenceHub, out Scp330Bag bag))
-			{
-				currentCandies = new List<CandyKindID>(bag.Candies);
+				if (Scp330Bag.TryGetBag(playerInformation.ReferenceHub, out Scp330Bag bag))
+				{
+					currentCandies = new List<CandyKindID>(bag.Candies);
+				}
 			}
 
 
